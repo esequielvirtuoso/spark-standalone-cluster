@@ -1,5 +1,5 @@
 # base image
-FROM java:openjdk-8-jdk
+FROM openjdk:8
 
 # define spark and hadoop versions
 ENV HADOOP_VERSION 2.7.7
@@ -22,6 +22,6 @@ RUN mkdir -p /opt && \
     echo Spark ${SPARK_VERSION} installed in /opt
 
 # add scripts and update spark default config
-ADD common.sh spark-master spark-worker /
-ADD spark-defaults.conf /opt/spark/conf/spark-defaults.conf
+ADD ./images/nodes/common.sh ./images/nodes/spark-master ./images/nodes/spark-worker /
+ADD ./images/nodes/spark-defaults.conf /opt/spark/conf/spark-defaults.conf
 ENV PATH $PATH:/opt/spark/bin

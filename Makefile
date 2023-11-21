@@ -6,7 +6,7 @@ HUB_USER = esequielvirtuoso
 IMG_NAME = $(HUB_USER)/$(REPO):$(version)
 
 PROXY_REPO  = spark-ui-proxy
-PROXY_IMAGE = IMG_NAME = $(HUB_USER)/$(PROXY_REPO):$(version)
+PROXY_IMAGE = $(HUB_USER)/$(PROXY_REPO):$(version)
 
 guard-%:
 	@ if [ "${${*}}" = "" ]; then \
@@ -20,7 +20,7 @@ stop-cluster:
 delete-cluster:
 	./hack/delete-cluster.sh
 
-start-cluster: stop-cluster delete-cluster
+start-cluster:
 	./hack/start-cluster.sh
 
 build: guard-version

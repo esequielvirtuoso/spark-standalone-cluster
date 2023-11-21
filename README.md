@@ -12,6 +12,8 @@ We could group make targets to reduce the number of steps. However, we decided t
 
 1. Start a cluster with predefined memory and cpu.
     ```
+    make stop-cluster &&
+    make delete-cluster &&
     make start-cluster
     ```
 
