@@ -1,4 +1,4 @@
-.PHONY: stop-cluster delete-cluster start-cluster build publish build-proxy publish-proxy create-master delete-master create-workers delete-workers create-proxy get-pods get-deployments get-deployment describe-master open-ui
+.PHONY: stop-cluster delete-cluster start-cluster build publish build-proxy publish-proxy create-master delete-master create-workers delete-workers create-proxy delete-proxy delete-all get-pods get-services get-deployments get-deployment describe-master open-ui
 version ?= latest
 REPO     = spark-nodes
 HUB_HOST = hub.docker.com/repository/docker
@@ -50,8 +50,17 @@ delete-workers:
 create-proxy:
 	./hack/create-proxy.sh
 
+delete-proxy:
+	./hack/delete-proxy.sh
+
+delete-all: delete-proxy delete-workers delete-master
+	@echo "all resources deleted"
+
 get-pods:
 	./hack/get-pods.sh
+
+get-services:
+	./hack/get-services.sh
 
 get-deployments:
 	./hack/get-deployments.sh
