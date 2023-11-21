@@ -17,7 +17,7 @@ spec:
         - name: spark-master
           image: esequielvirtuoso/spark-nodes:1.0.0
           imagePullPolicy: Always
-          command: ["/start-master"]
+          command: ["/spark-master"]
           ports:
             - containerPort: 7077
             - containerPort: 8080

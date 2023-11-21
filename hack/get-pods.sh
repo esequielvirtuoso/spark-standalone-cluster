@@ -1,2 +1,2 @@
 #!/bin/bash
-minikube kubectl get pods
+minikube kubectl -- get pods -o wide
