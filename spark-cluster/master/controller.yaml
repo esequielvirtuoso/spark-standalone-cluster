@@ -15,9 +15,9 @@ spec:
       subdomain: spark-master-headless
       containers:
         - name: spark-master
-          image: esequielvirtuoso/spark-nodes:1.0.0
-          imagePullPolicy: Always
-          command: ["/spark-master"]
+          image: esequielvirtuoso/spark-nodes:1.7.0
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/bash" , "/spark-master"]
           ports:
             - containerPort: 7077
             - containerPort: 8080
